@@ -1,4 +1,4 @@
-root {
+:root {
 
     /**
 * colors
@@ -455,7 +455,7 @@ body::webkit-scrollbar-thumb:hover {
     0%,
     45%,
     100% {
-        -webkit-transform: translateX(-webkit-calc(-100% - 40px));
+        -webkit-transform: translateX(calc(-100% - 40px));
         transform: translateX(calc(-100% - 40px));
         opacity: 0;
         visibility: hidden;
@@ -476,7 +476,7 @@ body::webkit-scrollbar-thumb:hover {
     0%,
     45%,
     100% {
-        -webkit-transform: translateX(-webkit-calc(-100% - 40px));
+        -webkit-transform: translateX(calc(-100% - 40px));
         transform: translateX(calc(-100% - 40px));
         opacity: 0;
         visibility: hidden;
@@ -493,7 +493,9 @@ body::webkit-scrollbar-thumb:hover {
 }
 
 .notification-toast.closed {
-    display: none;
+    opacity:0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .toast-close-btn {
@@ -584,7 +586,7 @@ body::webkit-scrollbar-thumb:hover {
     border-radius: var(--border-radius-md);
 }
 
-.search-field::-webkit-search-cancel-button {
+.search-field::-ms-clear {
     display: none;
 }
 
@@ -620,8 +622,6 @@ body::webkit-scrollbar-thumb:hover {
     transform: translateX(-50%);
     width: 100%;
     max-width: 500px;
-    margin: auto;
-    display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -828,9 +828,10 @@ body::webkit-scrollbar-thumb:hover {
     box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.05);
 }
 
-.menu-bottom .submenu-category:not(:last-child) {
+.menu-bottom .submenu-category-list .submenu-category:not(:last-child) {
     border-bottom: 1px solid var(--cultured);
 }
+
 
 .menu-social-container {
     display: -webkit-box;
@@ -878,9 +879,9 @@ body::webkit-scrollbar-thumb:hover {
     -webkit-border-radius: var(--border-radius-md);
     border-radius: var(--border-radius-md);
     overflow: auto hidden;
-    -webkit-scroll-snap-type: inline mandatory;
-    -ms-scroll-snap-type: inline mandatory;
-    scroll-snap-type: inline mandatory;
+    -webkit-scroll-snap-type: x mandatory;
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
     overscroll-behavior-inline: contain;
 }
 
@@ -888,7 +889,6 @@ body::webkit-scrollbar-thumb:hover {
     position: relative;
     min-width: 100%;
     max-height: 450px;
-    aspect-ratio: 1 / 1;
     -webkit-border-radius: var(--border-radius-md);
     border-radius: var(--border-radius-md);
     overflow: hidden;
@@ -898,9 +898,7 @@ body::webkit-scrollbar-thumb:hover {
 .slider-item .banner-img {
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
     object-fit: cover;
-    -o-object-position: right;
     object-position: right;
 }
 
@@ -939,8 +937,6 @@ body::webkit-scrollbar-thumb:hover {
 .banner-btn {
     background: var(--salmon-pink);
     color: var(--white);
-    width: -webkit-max-content;
-    width: -moz-max-content;
     width: max-content;
     font-size: var(--fs-11);
     font-weight: var(--weight-600);
